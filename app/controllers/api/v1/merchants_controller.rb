@@ -9,9 +9,13 @@ class Api::V1::MerchantsController < ApplicationController
     json_response(@merchants)
   end
 
+  def show
+    json_response(@merchant)
+  end 
+
   private 
 
   def set_merchant
-    @merchant = Merchant.find(params[:id])
+    @merchant = MerchantSerializer.new(Merchant.find(params[:id]))
   end 
 end
