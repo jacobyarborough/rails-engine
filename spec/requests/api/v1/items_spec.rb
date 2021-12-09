@@ -128,6 +128,25 @@ RSpec.describe 'Itemss API', type: :request do
     end 
   end 
 
+  describe 'PUT /api/v1/item' do 
+    let(:valid_attributes) { { name: 'New Item' } }
+
+    context 'when the record exists' do 
+      before { put "/api/v1/items/#{item_id}", params: valid_attributes }
+
+      it 'updates the record' do
+        item = Item.find_by(id: item_id)
+        
+        expect(item.name).to eq(valid_attributes[:name])
+      end 
+
+      it 'returns status code 200' do 
+        expect(response).to be_successful
+        expect(response).to have_http_status(200)
+      end 
+    end 
+  end 
+
   describe 'DELETE /api/v1/item/:id' do 
     before { delete "/api/v1/items/#{item_id}"}
 

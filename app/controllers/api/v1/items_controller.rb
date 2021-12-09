@@ -19,8 +19,8 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params)
-    head :no_content
+    Item.update(params[:id], item_params)
+    json_response(@item)
   end 
 
   def destroy
