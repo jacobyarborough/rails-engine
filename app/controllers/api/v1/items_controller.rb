@@ -2,7 +2,7 @@ class Api::V1::ItemsController < ApplicationController
   include Response
   include ExceptionHandler
 
-  before_action :set_item, only: [:show, :update, :destroy]
+  before_action :set_item, only: [:show, :update]
 
   def index
     @items = ItemSerializer.new(Item.all)
@@ -17,6 +17,16 @@ class Api::V1::ItemsController < ApplicationController
     @item = ItemSerializer.new(Item.create!(item_params))
     json_response(@item, :created)
   end
+
+  def update
+    @item.update(item_params)
+    head :no_content
+  end 
+
+  def destroy
+    Item.destroy(params[:id])
+    head :no_content
+  end 
 
   private 
 

@@ -127,4 +127,31 @@ RSpec.describe 'Itemss API', type: :request do
       end 
     end 
   end 
+
+  describe 'DELETE /api/v1/item/:id' do 
+    before { delete "/api/v1/items/#{item_id}"}
+
+    context 'when the item exists' do 
+      it 'returns status code 204' do
+        expect(response).to be_successful
+        expect(response).to have_http_status(204)
+      end 
+
+      it 'can destroy a book' do 
+        expect(Item.count).to eq(1)
+      end 
+    end 
+
+    context 'when the item does not exist' do 
+      let(:item_id) { 1000 }
+
+      it 'returns status code 404' do
+        expect(response).to have_http_status(404)
+      end 
+
+      it 'returns a not found message' do 
+        expect(response.body).to match(/Couldn't find Item/)
+      end 
+    end 
+  end 
 end
