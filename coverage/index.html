@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-12-08T22:10:25-07:00">2021-12-08T22:10:25-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-12-08T22:17:07-07:00">2021-12-08T22:17:07-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -381,7 +381,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#6889a477bba6b07327df9f651cb0e705e01ce12e" class="src_link" title="spec/requests/api/v1/items_spec.rb">spec/requests/api/v1/items_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">176</td>
+            <td class="cell--number">188</td>
             <td class="cell--number">99</td>
             <td class="cell--number">99</td>
             <td class="cell--number">0</td>
@@ -7060,7 +7060,7 @@
 
             
 
-            <code class="ruby">  end </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -7071,29 +7071,29 @@
 
             
 
+            <code class="ruby">    # context &#39;when the record does not exist&#39; do </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="150">
+            
+            
+
+            
+
+            <code class="ruby">    #   let(:item_id) { 1000 }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="151">
+            
+            
+
+            
+
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="150">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  describe &#39;DELETE /api/v1/item/:id&#39; do </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="5" data-linenumber="151">
-            <span class="hits">5</span>
-            
-
-            
-
-            <code class="ruby">    before { delete &quot;/api/v1/items/#{item_id}&quot;}</code>
           </li>
         </div>
       
@@ -7104,51 +7104,51 @@
 
             
 
+            <code class="ruby">    #   it &#39;returns status code 404&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="153">
+            
+            
+
+            
+
+            <code class="ruby">    #     expect(response).to have_http_status(404)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="154">
+            
+            
+
+            
+
+            <code class="ruby">    #   end </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="155">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="153">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="156">
+            
             
 
             
 
-            <code class="ruby">    context &#39;when the item exists&#39; do </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="154">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      it &#39;returns status code 204&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="155">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        expect(response).to be_successful</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="156">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        expect(response).to have_http_status(204)</code>
+            <code class="ruby">    #   it &#39;returns a not found message&#39; do </code>
           </li>
         </div>
       
@@ -7159,7 +7159,7 @@
 
             
 
-            <code class="ruby">      end </code>
+            <code class="ruby">    #     expect(response.body).to match(/Couldn&#39;t find Item/)</code>
           </li>
         </div>
       
@@ -7170,29 +7170,29 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    #   end </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="159">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="159">
+            
             
 
             
 
-            <code class="ruby">      it &#39;can destroy a book&#39; do </code>
+            <code class="ruby">    # end </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="160">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="160">
+            
             
 
             
 
-            <code class="ruby">        expect(Item.count).to eq(1)</code>
+            <code class="ruby">  end </code>
           </li>
         </div>
       
@@ -7203,62 +7203,62 @@
 
             
 
-            <code class="ruby">      end </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="162">
-            
-            
-
-            
-
-            <code class="ruby">    end </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="163">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="164">
+          <li class="covered" data-hits="1" data-linenumber="162">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    context &#39;when the item does not exist&#39; do </code>
+            <code class="ruby">  describe &#39;DELETE /api/v1/item/:id&#39; do </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="165">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="5" data-linenumber="163">
+            <span class="hits">5</span>
             
 
             
 
-            <code class="ruby">      let(:item_id) { 1000 }</code>
+            <code class="ruby">    before { delete &quot;/api/v1/items/#{item_id}&quot;}</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="166">
+          <li class="never" data-hits="" data-linenumber="164">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="165">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    context &#39;when the item exists&#39; do </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="166">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      it &#39;returns status code 204&#39; do</code>
           </li>
         </div>
       
@@ -7269,7 +7269,7 @@
 
             
 
-            <code class="ruby">      it &#39;returns status code 404&#39; do</code>
+            <code class="ruby">        expect(response).to be_successful</code>
           </li>
         </div>
       
@@ -7280,7 +7280,7 @@
 
             
 
-            <code class="ruby">        expect(response).to have_http_status(404)</code>
+            <code class="ruby">        expect(response).to have_http_status(204)</code>
           </li>
         </div>
       
@@ -7313,7 +7313,7 @@
 
             
 
-            <code class="ruby">      it &#39;returns a not found message&#39; do </code>
+            <code class="ruby">      it &#39;can destroy a book&#39; do </code>
           </li>
         </div>
       
@@ -7324,7 +7324,7 @@
 
             
 
-            <code class="ruby">        expect(response.body).to match(/Couldn&#39;t find Item/)</code>
+            <code class="ruby">        expect(Item.count).to eq(1)</code>
           </li>
         </div>
       
@@ -7357,12 +7357,144 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="176">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    context &#39;when the item does not exist&#39; do </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="177">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">      let(:item_id) { 1000 }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="178">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="179">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      it &#39;returns status code 404&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="180">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(response).to have_http_status(404)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="181">
+            
+            
+
+            
+
+            <code class="ruby">      end </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="182">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="183">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      it &#39;returns a not found message&#39; do </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="184">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(response.body).to match(/Couldn&#39;t find Item/)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="185">
+            
+            
+
+            
+
+            <code class="ruby">      end </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="186">
+            
+            
+
+            
+
+            <code class="ruby">    end </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="187">
+            
+            
+
+            
+
             <code class="ruby">  end </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="176">
+          <li class="never" data-hits="" data-linenumber="188">
             
             
 
