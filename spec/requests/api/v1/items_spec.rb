@@ -47,7 +47,7 @@ RSpec.describe 'Items API', type: :request do
         expect(response).to be_successful
 
         item = JSON.parse(response.body, symbolize_names: :true)
-  
+
         expect(item).not_to be_empty
         expect(item.count).to eq(1)
         
@@ -174,6 +174,36 @@ RSpec.describe 'Items API', type: :request do
     end 
 
     context 'when the item does not exist' do 
+      let(:item_id) { 1000 }
+
+      it 'returns status code 404' do
+        expect(response).to have_http_status(404)
+      end 
+
+      it 'returns a not found message' do 
+        expect(response.body).to match(/Couldn't find Item/)
+      end 
+    end 
+  end 
+
+  describe 'GET /api/v1/items/:id/merchant' do 
+    before { get "/api/v1/items/#{item_id}/merchant"}
+
+    context 'when the item exists' do
+      it 'returns the merchant' do 
+        found_merchant = JSON.parse(response.body, symbolize_names: :true)
+
+        expect(found_merchant[:data]).not_to be_empty
+        expect(found_merchant.count).to eq(1)
+      end 
+
+      it 'returns status code 200' do 
+        expect(response).to be_successful
+        expect(response).to have_http_status(200)
+      end 
+    end 
+
+    context 'when the record does not exist' do 
       let(:item_id) { 1000 }
 
       it 'returns status code 404' do
