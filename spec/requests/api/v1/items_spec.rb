@@ -323,8 +323,6 @@ RSpec.describe 'Items API', type: :request do
 
         items = JSON.parse(response.body, symbolize_names: :true)
 
-        expect(items[:data]).not_to be_empty
-
         items[:data].each do |item|
 
           expect(item).to have_key(:id)
