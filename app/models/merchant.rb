@@ -5,6 +5,6 @@ class Merchant < ApplicationRecord
   validates_presence_of :name
 
   def self.name_search(name_string)
-    where("merchants.name like '#{'%' + name_string + '%'}'").order(name: :asc).limit(1)
+    where("lower(merchants.name) like '#{'%' + name_string + '%'}'").order(name: :asc).limit(1)[0]
   end
 end 

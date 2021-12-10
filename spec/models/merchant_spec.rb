@@ -13,10 +13,8 @@ RSpec.describe Merchant, type: :model do
 
   describe 'class methods' do
     describe '.name_search' do
-      context 'The search results produce matches' do
-        it 'returns a merchant based on a name query param' do
-          expect(Merchant.name_search('corp')).to eq([@merchant1])
-        end 
+      it 'returns a merchant based on a name query param' do
+        expect(Merchant.name_search('corp')).to eq([@merchant1])
       end 
     end 
   end 

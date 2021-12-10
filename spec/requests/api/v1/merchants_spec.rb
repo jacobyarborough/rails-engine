@@ -97,4 +97,31 @@ RSpec.describe 'Merchants API', type: :request do
       end 
     end 
   end 
+
+  describe 'GET /api/v1/merchants/find' do 
+    before { Merchant.create!(name: 'ABC corp') }
+    before { Merchant.create!(name: 'BAC Corp') }
+
+    let(:query_param) { '?name=Corp'}
+
+    before { get "/api/v1/merchants/find#{query_param}" }
+
+    context 'it can match a record' do
+      it 'returns a merchant' do
+        expect(response).to be_successful
+
+        found_merchant = JSON.parse(response.body, symbolize_names: :true)
+
+        expect(found_merchant).not_to be_empty
+        expect(found_merchant.count).to eq(1)
+
+        expect(found_merchant[:data]).to have_key(:id)
+        expect(found_merchant[:data][:id]).to be_a(String)
+
+        expect(found_merchant[:data][:attributes]).to have_key(:name)
+        expect(found_merchant[:data][:attributes][:name]).to be_a(String)
+        expect(found_merchant[:data][:attributes][:name]).to eq('ABC corp')
+      end 
+    end 
+  end 
 end

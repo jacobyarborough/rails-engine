@@ -5,7 +5,6 @@ class Api::V1::Merchants::SearchController < ApplicationController
   before_action :set_merchant
 
   def show
-    binding.pry
     json_response(@merchant)
   end
   
@@ -15,7 +14,7 @@ class Api::V1::Merchants::SearchController < ApplicationController
     params.permit(:name)
   end 
 
-  def get_merchant
-    @merchant = MerchantSerializer.new(Merchant.name_search(search_params))
+  def set_merchant
+    @merchant = MerchantSerializer.new(Merchant.name_search(search_params[:name].downcase))
   end 
 end 
