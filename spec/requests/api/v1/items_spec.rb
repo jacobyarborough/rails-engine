@@ -215,4 +215,144 @@ RSpec.describe 'Items API', type: :request do
       end 
     end 
   end 
+
+  describe 'GET /api/v1/merchants/find' do 
+    before { Item.create!(name: 'Item A', description: 'item a desc', unit_price: 77.89, merchant_id: merchant.id) }
+    before { Item.create!(name: 'Item B', description: 'item a desc', unit_price: 35.89, merchant_id: merchant.id) }
+
+    context 'Pass in a name param' do 
+      it 'returns all matching records' do 
+        query_param = '?name=item'
+        get "/api/v1/items/find_all#{query_param}"
+
+        expect(response).to be_successful
+
+        items = JSON.parse(response.body, symbolize_names: :true)
+
+        expect(items[:data]).not_to be_empty
+        expect(items[:data].count).to eq(2)
+
+        items[:data].each do |item|
+
+          expect(item).to have_key(:id)
+          expect(item[:id]).to be_a(String)
+  
+          expect(item[:attributes]).to have_key(:name)
+          expect(item[:attributes][:name]).to be_a(String)
+  
+          expect(item[:attributes]).to have_key(:description)
+          expect(item[:attributes][:description]).to be_a(String)
+  
+          expect(item[:attributes]).to have_key(:unit_price)
+          expect(item[:attributes][:unit_price]).to be_a(Float)
+  
+          expect(item[:attributes]).to have_key(:merchant_id)
+          expect(item[:attributes][:merchant_id]).to be_an(Integer)
+        end 
+      end
+    end 
+
+    context 'Pass in a min_price param' do 
+      it 'returns all matching records' do 
+        query_param = '?min_price=50'
+        get "/api/v1/items/find_all#{query_param}"
+
+        expect(response).to be_successful
+
+        items = JSON.parse(response.body, symbolize_names: :true)
+
+        expect(items[:data]).not_to be_empty
+
+        items[:data].each do |item|
+
+          expect(item).to have_key(:id)
+          expect(item[:id]).to be_a(String)
+  
+          expect(item[:attributes]).to have_key(:name)
+          expect(item[:attributes][:name]).to be_a(String)
+  
+          expect(item[:attributes]).to have_key(:description)
+          expect(item[:attributes][:description]).to be_a(String)
+  
+          expect(item[:attributes]).to have_key(:unit_price)
+          expect(item[:attributes][:unit_price]).to be_a(Float)
+  
+          expect(item[:attributes]).to have_key(:merchant_id)
+          expect(item[:attributes][:merchant_id]).to be_an(Integer)
+        end 
+      end
+    end 
+
+    context 'Pass in a max_price param' do 
+      it 'returns all matching records' do 
+        query_param = '?max_price=50'
+        get "/api/v1/items/find_all#{query_param}"
+
+        expect(response).to be_successful
+
+        items = JSON.parse(response.body, symbolize_names: :true)
+
+        expect(items[:data]).not_to be_empty
+
+        items[:data].each do |item|
+
+          expect(item).to have_key(:id)
+          expect(item[:id]).to be_a(String)
+  
+          expect(item[:attributes]).to have_key(:name)
+          expect(item[:attributes][:name]).to be_a(String)
+  
+          expect(item[:attributes]).to have_key(:description)
+          expect(item[:attributes][:description]).to be_a(String)
+  
+          expect(item[:attributes]).to have_key(:unit_price)
+          expect(item[:attributes][:unit_price]).to be_a(Float)
+  
+          expect(item[:attributes]).to have_key(:merchant_id)
+          expect(item[:attributes][:merchant_id]).to be_an(Integer)
+        end 
+      end
+    end 
+
+    context 'Pass in a min_price and max_price params' do 
+      it 'returns all matching records' do 
+        query_param = '?min_price=50&max_price=75'
+        get "/api/v1/items/find_all#{query_param}"
+
+        expect(response).to be_successful
+
+        items = JSON.parse(response.body, symbolize_names: :true)
+
+        expect(items[:data]).not_to be_empty
+
+        items[:data].each do |item|
+
+          expect(item).to have_key(:id)
+          expect(item[:id]).to be_a(String)
+  
+          expect(item[:attributes]).to have_key(:name)
+          expect(item[:attributes][:name]).to be_a(String)
+  
+          expect(item[:attributes]).to have_key(:description)
+          expect(item[:attributes][:description]).to be_a(String)
+  
+          expect(item[:attributes]).to have_key(:unit_price)
+          expect(item[:attributes][:unit_price]).to be_a(Float)
+  
+          expect(item[:attributes]).to have_key(:merchant_id)
+          expect(item[:attributes][:merchant_id]).to be_an(Integer)
+        end 
+      end
+    end 
+
+    context 'Pass in price params and a name params' do 
+      it 'returns an error message' do 
+        query_param = '?name=corp&min_price=50&max_price=75'
+        get "/api/v1/items/find_all#{query_param}"
+
+        expect(response).to have_http_status(404)
+        expect(response.body).to match(/Error, can not search by name and price at once/)
+      end
+    end 
+  end 
 end
