@@ -9,7 +9,7 @@ class Item < ApplicationRecord
 
   def self.item_search(params)
     if params[:name]
-      where("lower(items.name) like '#{'%' + params[:name] + '%'}'")
+      where("lower(items.name) like '#{'%' + params[:name].downcase + '%'}'")
     elsif params[:min_price] && params[:max_price]
       where("items.unit_price between #{params[:min_price]} and #{params[:max_price]}")
     elsif params[:min_price]

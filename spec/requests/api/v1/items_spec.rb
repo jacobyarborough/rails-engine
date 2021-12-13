@@ -216,7 +216,7 @@ RSpec.describe 'Items API', type: :request do
     end 
   end 
 
-  describe 'GET /api/v1/merchants/find' do 
+  describe 'GET /api/v1/items/find_all' do 
     before { Item.create!(name: 'Item A', description: 'item a desc', unit_price: 77.89, merchant_id: merchant.id) }
     before { Item.create!(name: 'Item B', description: 'item a desc', unit_price: 35.89, merchant_id: merchant.id) }
 
