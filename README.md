@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+RAILS ENGINE LITE SOLO PROJECT
 
-Things you may want to cover:
+* Ruby version: ruby 2.7.2 | Rails version: 5.3.6
 
-* Ruby version
+* Database creation: Rails db:{drop, create, migrate, seed}
 
-* System dependencies
+* How to run the test suite: RSpec
 
-* Configuration
 
-* Database creation
+RAILS API APPLICATION ENDPOINTS
 
-* Database initialization
+- GET /api/v1/items
+- GET /api/v1/items/:id 
+- POST /api/v1/items
+- PUT /api/v1/items/:id
+- DELETE /api/v1/item/:id
+- GET /api/v1/items/:id/merchant
+- GET /api/v1/merchants/find_all | query params: name, min_price, max_price. NOTE: Can not use name and price params together at once.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- GET /api/v1/merchants
+- GET /api/v1/merchants/:id
+- GET /api/v1/merchants/:id/items
+- GET /api/v1/merchants/find | query params: name
