@@ -1,4 +1,4 @@
-class MerchantSerializer
+class MerchantNameRevenueSerializer
   include JSONAPI::Serializer
   attributes :name
 
