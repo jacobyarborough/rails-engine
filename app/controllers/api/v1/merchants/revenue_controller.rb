@@ -15,13 +15,13 @@ class Api::V1::Merchants::RevenueController < ApplicationController
 
   def total
     initial_revenue = Merchant.total_rev_by_date(params[:start], params[:end])
-    @processed_revenue = TotalRevenueSerializer.new(initial_revenue)
+    @processed_revenue = RevenueSerializer.new(initial_revenue[0])
     json_response(@processed_revenue)
   end 
 
   def show
     initial_merchant = Merchant.merchant_rev(params[:id].to_i)
-    @processed_merchant = MerchantRevenueSerializer.new(initial_merchant)
+    @processed_merchant = MerchantRevenueSerializer.new(initial_merchant[0])
     json_response(@processed_merchant)
   end 
 end 
