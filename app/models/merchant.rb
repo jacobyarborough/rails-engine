@@ -16,4 +16,19 @@ class Merchant < ApplicationRecord
     .order('rev desc')
     .limit(quantity)
   end 
+
+  def self.top_merchants_by_items_sold(quantity)
+    joins(invoices: [:transactions, :invoice_items])
+    .where(transactions: {result: 'success'})
+    .group(:id)
+    .select('merchants.*, sum(invoice_items.quantity) as num')
+    .order('num desc')
+    .limit(quantity)
+  end 
+
+  def self.total_rev_by_date(start_date, end_date)
+    joins(invoices: [:transactions, :invoice_items])
+    .where("transactions.result = 'success' and invoices.status = 'shipped' and invoices.created_at >= '#{start_date.to_s}' and invoices.created_at <= '#{end_date.to_s}'")
+    .select('sum(invoice_items.unit_price * invoice_items.quantity) as rev')
+  end 
 end 
