@@ -31,4 +31,11 @@ class Merchant < ApplicationRecord
     .where("transactions.result = 'success' and invoices.status = 'shipped' and invoices.created_at >= '#{start_date.to_s}' and invoices.created_at <= '#{end_date.to_s}'")
     .select('sum(invoice_items.unit_price * invoice_items.quantity) as rev')
   end 
+
+  def self.merchant_rev(id)
+    joins(invoices: [:transactions, :invoice_items])
+    .where(invoices: {status: 'shipped'}, transactions: {result: 'success'}, merchants: {id: id})
+    .group(:id)
+    .select('merchants.*, sum(invoice_items.unit_price * invoice_items.quantity) as rev')
+  end 
 end 

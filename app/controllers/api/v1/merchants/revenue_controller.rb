@@ -18,4 +18,10 @@ class Api::V1::Merchants::RevenueController < ApplicationController
     @processed_revenue = TotalRevenueSerializer.new(initial_revenue)
     json_response(@processed_revenue)
   end 
+
+  def show
+    initial_merchant = Merchant.merchant_rev(params[:id].to_i)
+    @processed_merchant = MerchantRevenueSerializer.new(initial_merchant)
+    json_response(@processed_merchant)
+  end 
 end 
